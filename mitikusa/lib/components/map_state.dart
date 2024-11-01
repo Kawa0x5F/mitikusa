@@ -194,7 +194,7 @@ class _MyMapState extends State<MyMap> {
         ..add(gmaps.Polyline(
           polylineId: const gmaps.PolylineId('short'),
           visible: true,
-          color: Colors.black54,
+          color: Colors.blue,
           width: 5,
           points: pointsShort,
         ))
