@@ -236,11 +236,15 @@ class _MyMapState extends State<MyMap> {
 
     // ルートがちょうどよく収まるようにズーム
     final gmaps.LatLng southwest = gmaps.LatLng(
-        min(originLatLng.latitude, destinationLatLng.latitude),
-        min(originLatLng.longitude, destinationLatLng.longitude));
+        min(originLatLng.latitude,
+            min(intermediateLatLng.latitude, destinationLatLng.latitude)),
+        min(originLatLng.longitude,
+            min(intermediateLatLng.longitude, destinationLatLng.longitude)));
     final gmaps.LatLng northeast = gmaps.LatLng(
-        max(originLatLng.latitude, destinationLatLng.latitude),
-        max(originLatLng.longitude, destinationLatLng.longitude));
+        max(originLatLng.latitude,
+            max(intermediateLatLng.latitude, destinationLatLng.latitude)),
+        max(originLatLng.longitude,
+            max(intermediateLatLng.longitude, destinationLatLng.longitude)));
     const double padding = 100.0;
     _googleMapController.animateCamera(
       gmaps.CameraUpdate.newLatLngBounds(
